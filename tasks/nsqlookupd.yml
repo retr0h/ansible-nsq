@@ -1,0 +1,8 @@
+---
+- name: add nsqlookupd user
+  user: name={{ nsq_nsqlookupd_user }}
+
+- name: nsqlookupd upstart service
+  template: src=etc/init/nsqlookupd.conf.j2 dest=/etc/init/nsqlookupd.conf
+  notify:
+    - restart nsqlookupd

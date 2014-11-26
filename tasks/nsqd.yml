@@ -1,0 +1,15 @@
+---
+- name: add nsqd user
+  user: name={{ nsq_nsqd_user }}
+
+- name: create path for on-disk queue files
+  file: path={{ nsq_nsqd_data_path }}
+        state=directory
+        mode=0770
+        group={{ nsq_nsqd_user }}
+        owner={{ nsq_nsqd_group }}
+
+- name: nsqd upstart service
+  template: src=etc/init/nsqd.conf.j2 dest=/etc/init/nsqd.conf
+  notify:
+    - restart nsqd

@@ -1,0 +1,21 @@
+---
+- hosts: all
+  pre_tasks:
+    - apt: update_cache=yes cache_valid_time=3600
+
+- hosts: nsqadmin
+  roles:
+    - { role: nsq, nsq_nsqadmin_server: true }
+
+- hosts: nsqd
+  roles:
+    - { role: nsq, nsq_nsqd_server: true }
+
+- hosts: nsqlookupd
+  roles:
+    - { role: nsq, nsq_nsqlookupd_server: true }
+
+- hosts: all
+  tasks:
+    - meta: flush_handlers
+    - include: roles/nsq/tasks/test.yml
