@@ -1,6 +1,8 @@
 ---
 - name: add nsqd user
   user: name={{ nsq_nsqd_user }}
+        system=yes
+        shell=/bin/false
 
 - name: create path for on-disk queue files
   file: path={{ nsq_nsqd_data_path }}
