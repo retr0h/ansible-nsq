@@ -38,7 +38,6 @@ nsq_nsqadmin_statsd_interval: 30s
 nsq_nsqd_server: false
 nsq_nsqd_user: nsqd
 nsq_nsqd_group: nsqd
-nsq_nsqd_role: nsqd
 nsq_nsqd_cmd: "{{ nsq_dir }}/nsqd"
 nsq_nsqd_tcp_port: 4150
 nsq_nsqd_http_port: 4151
@@ -74,6 +73,7 @@ nsq_nsqd_e2e_processing_latency_window_time: 10m0s
 nsq_nsqlookupd_server: false
 nsq_nsqlookupd_user: nsqlookupd
 nsq_nsqlookupd_user: nsqlookupd
+nsq_nsqlookupd_role: nsqlookupd
 nsq_nsqlookupd_cmd: "{{ nsq_dir }}/nsqlookupd"
 nsq_nsqlookupd_tcp_port: 4160
 nsq_nsqlookupd_http_port: 4161

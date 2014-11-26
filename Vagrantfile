@@ -9,9 +9,9 @@ Vagrant.configure('2') do |config|
     ansible.host_key_checking = false
     # ansible.verbose = "vvv"
     ansible.groups = {
-      'nsqadmin' => ['nsqd-1'],
-      'nsqd' => ['nsqd-1'],
-      'nsqlookupd' => ['nsqd-1']
+      'nsqadmin' => ['nsqd-1', 'nsqd-2', 'nsqd-3'],
+      'nsqd' => ['nsqd-1', 'nsqd-2', 'nsqd-3'],
+      'nsqlookupd' => ['nsqd-1', 'nsqd-2', 'nsqd-3']
     }
     ansible.extra_vars = {
       nsq_nsqd_interface: 'eth1',
@@ -19,8 +19,7 @@ Vagrant.configure('2') do |config|
     }
   end
 
-  #(1..3).each do |i|
-  (1..1).each do |i|
+  (1..3).each do |i|
     vm_name = "nsqd-#{i}"
     config.vm.define vm_name do |c|
       c.vm.host_name = vm_name

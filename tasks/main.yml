@@ -13,9 +13,9 @@
   shell: rsync -auv {{ nsq_download_dir }}/{{ nsq_release }}/{{ item }} {{ nsq_dir }}
   with_items: nsq_binaries
 
-#- include: nsqadmin.yml
-#  when: nsq_nsqadmin_server
-#- include: nsqd.yml
-#  when: nsq_nsqd_server
+- include: nsqadmin.yml
+  when: nsq_nsqadmin_server
+- include: nsqd.yml
+  when: nsq_nsqd_server
 - include: nsqlookupd.yml
   when: nsq_nsqlookupd_server
