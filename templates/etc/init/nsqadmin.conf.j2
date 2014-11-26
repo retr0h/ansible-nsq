@@ -15,8 +15,8 @@ script
   rm /tmp/nsqadmin-log-fifo
   
   exec su -s /bin/sh -c 'exec "$0" "$@"' {{ nsq_nsqadmin_user }} -- {{ nsq_nsqadmin_cmd }} \
-    {% for host in groups[nsq_nsqd_role] -%}
-      --lookupd-http-address={{ hostvars[host]['ansible_' + nsq_nsqd_interface]['ipv4']['address'] }}:{{ nsq_nsqd_http_port }} \
+    {% for host in groups[nsq_nsqlookupd_role] -%}
+      --lookupd-http-address={{ hostvars[host]['ansible_' + nsq_nsqd_interface]['ipv4']['address'] }}:{{ nsq_nsqlookupd_http_port }} \
     {% endfor -%}
     --use-statsd-prefixes={{ nsq_nsqadmin_use_statsd_prefixes }} \
     --statsd-interval={{ nsq_nsqadmin_statsd_interval }} \

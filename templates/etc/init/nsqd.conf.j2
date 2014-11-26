@@ -24,8 +24,8 @@ script
   exec su -s /bin/sh -c 'exec "$0" "$@"' {{ nsq_nsqd_user }} -- {{ nsq_nsqd_cmd }} \
     --data-path={{ nsq_nsqd_data_path }} \
     --http-address={{ nsq_nsqd_http_address }} \
-    {% for host in groups[nsq_nsqd_role] -%}
-      --lookupd-tcp-address={{ hostvars[host]['ansible_' + nsq_nsqd_interface]['ipv4']['address'] }}:{{ nsq_nsqd_tcp_port }} \
+    {% for host in groups[nsq_nsqlookupd_role] -%}
+      --lookupd-tcp-address={{ hostvars[host]['ansible_' + nsq_nsqd_interface]['ipv4']['address'] }}:{{ nsq_nsqlookupd_tcp_port }} \
     {% endfor -%}
     --e2e-processing-latency-percentile={{ nsq_nsqd_e2e_processing_latency_percentile }} \
     --e2e-processing-latency-window-time={{ nsq_nsqd_e2e_processing_latency_window_time }} \
