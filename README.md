@@ -7,7 +7,7 @@ Role ready status
 -----------------
 
 [![Build Status](http://img.shields.io/travis/retr0h/ansible-nsq.svg?style=flat-square)](https://travis-ci.org/retr0h/ansible-nsq)
-[![Galaxy](http://img.shields.io/badge/galaxy-ansible--nsq-blue.svg?style=flat-square)](https://galaxy.ansible.com/list#/roles/1206)
+[![Galaxy](http://img.shields.io/badge/galaxy-ansible--nsq-blue.svg?style=flat-square)](https://galaxy.ansible.com/list#/roles/2265)
 
 Requirements
 ------------
