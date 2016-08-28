@@ -25,7 +25,7 @@ nsq_nsqadmin_user: nsqadmin
 nsq_nsqadmin_cmd: "{{ nsq_dir }}/nsqadmin"
 nsq_nsqadmin_http_port: 4171
 nsq_nsqadmin_interface: lo
-nsq_nsqadmin_addr: "{{ hostvars[inventory_hostname]['ansible_' + nsq_nsqd_interface]['ipv4']['address'] }}"
+nsq_nsqadmin_addr: "{{ hostvars[inventory_hostname]['ansible_' + nsq_nsqadmin_interface]['ipv4']['address'] }}"
 nsq_nsqadmin_graphite_url:
 nsq_nsqadmin_proxy_graphite: true
 nsq_nsqadmin_http_address: "{{ nsq_nsqadmin_addr }}:{{ nsq_nsqadmin_http_port }}"
